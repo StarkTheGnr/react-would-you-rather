@@ -12,7 +12,6 @@ class Question extends Component
 		e.preventDefault()
 
 		const option = this.state && this.state.option
-		console.log("button clicked", this.props)
 		if (option)
 		{
 			this.props.dispatch(handleSaveAnswer(this.props.authedUser, this.props.question, option))
@@ -24,10 +23,12 @@ class Question extends Component
 	{
 		if (!this.props.authedUser)
 			return (
-				<Redirect to="/signin" />
+				<Redirect to={{
+				pathname: "/signin",
+				state: { referrer: ("questions/" + this.props.question.id)}
+			}} />
 			)
 
-		console.log("here")
 		const question = this.props.question
 		if(!question)
 			return <span>No Question</span>
@@ -38,8 +39,6 @@ class Question extends Component
 			const votes1 = this.props.question.optionOne.votes.length
 			const votes2 = this.props.question.optionTwo.votes.length
 			const totalVotes = votes1 + votes2
-
-			console.log(this.props)
 
 			return (
 				<Container className="d-flex flex-wrap justify-content-center">
@@ -60,6 +59,9 @@ class Question extends Component
 									    <Card.Text className="h2">
 									      {(votes1/totalVotes * 100).toFixed(1)}%
 									    </Card.Text>
+									    <Card.Text className="h2">
+									      {this.props.question.optionOne.votes.length} votes
+									    </Card.Text>
 									  </Card.Body>
 									</Card>
 								</div>
@@ -72,6 +74,9 @@ class Question extends Component
 								    <Card.Text className="h2">
 								      {(votes2/totalVotes * 100).toFixed(1)}%
 								    </Card.Text>
+								    <Card.Text className="h2">
+									      {this.props.question.optionTwo.votes.length} votes
+									    </Card.Text>
 								  </Card.Body>
 								</Card>
 							</div>
@@ -118,7 +123,6 @@ function mapStateToProps({ authedUser, users, questions }, props)
 {
 	if(authedUser && users && questions && Object.keys(questions).length > 0 && props.match.params.qid)
 	{
-		console.log("QUESTION FROM LINK:", questions)
 		const authorUser = users[questions[props.match.params.qid].author]
 		return {
 			authorUser,

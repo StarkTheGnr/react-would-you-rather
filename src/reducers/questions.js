@@ -2,8 +2,6 @@ import { GET_QUESTIONS, SAVE_QANSWER, NEW_QUESTION } from "../actions/questions"
 
 export default function questions (state = {}, action)
 {
-	console.log("action", action)
-
 	switch(action.type)
 	{
 		case GET_QUESTIONS:

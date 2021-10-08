@@ -10,7 +10,6 @@ export default function users (state = {}, action)
 				...action.users
 			})
 		case SAVE_ANSWER:
-			console.log("updating user answer", action)
 			return ({
 				...state,
 		        [action.authedUser.id]: {

@@ -16,7 +16,6 @@ class App extends Component
 {
   componentDidMount()
   {
-    console.log("dispatching")
     this.props.dispatch(handleGetUsers())
     this.props.dispatch(handleGetQuestions())
   }
@@ -32,7 +31,7 @@ class App extends Component
             <Route path="/newquestion" component={NewQuestion} />
             <Route path="/leaderboard" component={Leaderboard} />
             <Route path="/signin" component={Login} />
-            <Route path="/question/:qid" component={Question} />
+            <Route path="/questions/:qid" component={Question} />
             <Route path="*" component={NotFound} />
           </Switch>
         </div>

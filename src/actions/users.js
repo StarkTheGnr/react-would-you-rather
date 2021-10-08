@@ -34,11 +34,8 @@ export function handleGetUsers()
 export function handleSaveAnswer(authedUser, question, option)
 {
 	return (dispatch) => {
-		console.log("saving")
 		return _saveQuestionAnswer({authedUser: authedUser.id, qid: question.id, answer: option}).then(() => {
-			console.log("dispatching save answer")
 			dispatch(saveAnswer(authedUser, question, option))
-			console.log("user shit", question, authedUser)
 			dispatch(saveQAnswer(question.id, authedUser.id, option))
 		})
 	}

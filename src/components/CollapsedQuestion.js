@@ -11,7 +11,7 @@ class CollapsedQuestion extends Component
 
 		if (this.props.question)
 		{
-			this.props.history.push("/question/" + this.props.question.id)
+			this.props.history.push("/questions/" + this.props.question.id)
 			e.target.disabled = true
 		}
 	}

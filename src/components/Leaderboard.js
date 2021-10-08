@@ -10,7 +10,10 @@ class Leaderboard extends Component
 	{
 		if (!this.props.authedUser)
 			return (
-				<Redirect to="/signin" />
+				<Redirect to={{
+				pathname: "/signin",
+				state: { referrer: "leaderboard"}
+			}} />
 			)
 
 		return (
@@ -27,7 +30,7 @@ class Leaderboard extends Component
 
 					return answered + (created2 - created1)
 				}).map((k) => (
-					<LeaderboardCard authorUser={this.props.users[k].id} />
+					<LeaderboardCard key={k} authorUser={this.props.users[k].id} />
 				))
 			}
 			</Stack>

@@ -13,13 +13,15 @@ class Home extends Component
 	}
 
 	render()
-	{
+	{		
 		if (!this.props.authedUser)
 			return (
-				<Redirect to="/signin" />
+				<Redirect to={{
+				pathname: "/signin",
+				state: { referrer: ""}
+			}} />
 			)
 
-		console.log("props", this.props)
 		if(!this.props.questions || !this.props.authedUser)
 			return <span>loading</span>
 
@@ -29,8 +31,6 @@ class Home extends Component
 		const unanswered = Object.keys(this.props.questions).filter((key) => (
 			!(Object.keys(this.props.users[this.props.authedUser].answers).includes(key))
 		))
-
-		console.log(this.props.questions, answered, unanswered, Object.keys(this.props.users[this.props.authedUser].answers))
 
 		return(
 			<Tabs defaultActiveKey="unanswered" className="mb-3">
@@ -59,7 +59,6 @@ class Home extends Component
 
 function mapStateToProps({ questions, authedUser, users })
 {
-	console.log(questions, authedUser, users)
 	return ({
 		questions: questions,
 		...authedUser,

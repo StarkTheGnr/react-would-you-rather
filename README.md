@@ -1,3 +1,7 @@
+# Would You Rather Project
+
+A react implementation of the infamous Would You Rather...? game. Log in as one of the users and start asking the hard questions! You can also choose to respond to other users' questions. Have fun!
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -6,6 +10,10 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
+### Instructions
+* Run npm install or yarn install
+* Run npm start or yarn start
+
 ### `yarn start`
 
 Runs the app in the development mode.\
@@ -13,6 +21,10 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
+
+### `yarn install`
+
+Installs the necessary packages to run the app.
 
 ### `yarn test`
 

@@ -26,7 +26,10 @@ class NewQuestion extends Component
 	{
 		if (!this.props.authedUser)
 			return (
-				<Redirect to="/signin" />
+				<Redirect to={{
+				pathname: "/signin",
+				state: { referrer: "newquestion"}
+			}} />
 			)
 		
 		return (

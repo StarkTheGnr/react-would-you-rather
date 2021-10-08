@@ -35,7 +35,7 @@ class Login extends Component
 		if (this.state && this.state.selectedId)
 		{
 			this.props.dispatch(loginUser(this.props.users, this.state.selectedId))
-			this.props.history.push("/")
+			this.props.history.push("/" + ((this.props.location.state && this.props.location.state.referrer) ? this.props.location.state.referrer : ""))
 		}
 	}
 
@@ -81,7 +81,6 @@ class Login extends Component
 
 function mapStateToProps({ users })
 {
-	console.log(users)
 	return {
 	 users
 	}
