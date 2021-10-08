@@ -28,7 +28,7 @@ class App extends Component
           <Navigation />
           <Switch>
             <Route path="/" exact component={Home} />
-            <Route path="/newquestion" component={NewQuestion} />
+            <Route path="/add" component={NewQuestion} />
             <Route path="/leaderboard" component={Leaderboard} />
             <Route path="/signin" component={Login} />
             <Route path="/questions/:qid" component={Question} />

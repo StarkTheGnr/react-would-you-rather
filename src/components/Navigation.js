@@ -17,7 +17,7 @@ class Navigation extends Component
 			    <Navbar.Collapse id="basic-navbar-nav">
 			      <Nav className="me-auto">
 			        <Link className="nav-link" to="/">Home</Link>
-			        <Link className="nav-link" to="/newquestion">New Question</Link>
+			        <Link className="nav-link" to="/add">New Question</Link>
 			        <Link className="nav-link" to="/leaderboard">Leaderboard</Link>
 			      </Nav>
 			      {this.props.authedUser ? 

@@ -22,12 +22,20 @@ class Question extends Component
 	render()
 	{
 		if (!this.props.authedUser)
+		{
+			if (!this.props.question)
+				return (
+					<Redirect to={{
+					pathname: "/notfound"
+				}} />)
+
 			return (
 				<Redirect to={{
 				pathname: "/signin",
 				state: { referrer: ("questions/" + this.props.question.id)}
 			}} />
 			)
+		}
 
 		const question = this.props.question
 		if(!question)

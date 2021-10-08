@@ -28,7 +28,7 @@ class NewQuestion extends Component
 			return (
 				<Redirect to={{
 				pathname: "/signin",
-				state: { referrer: "newquestion"}
+				state: { referrer: "add"}
 			}} />
 			)
 		
